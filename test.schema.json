@@ -1,0 +1,65 @@
+{
+    "$id": "https://example.com/address.schema.json",
+    "description": "A single test of the ASN1 test suite",
+    "type": "object",
+    "required": [
+        "name",
+        "id",
+        "specification"
+    ],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Descriptive name of the test"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unique test ID, starting with 'test'"
+      },
+      "specification": {
+        "type": "string",
+        "description": "The ASN1 declaration under test as a literal JSON string. Line-breaks and tabs are escaped."
+      },
+      "value": {
+        "type": "string",
+        "description": "An ASN1 declaration of a test value to be encoded as part of the test."
+      },
+      "uper": {
+        "type": "object",
+        "properties": {
+          "binary": {
+            "type": "string",
+            "description": "The test value encoded according to the Unaligned Packed Encoding Rules, encoded as a hexadecimal string."
+          },
+          "unusedBits": {
+            "type": "number",
+            "description": "Number of unused zero-bits appended to the end of the encoded UPER value"
+          }
+        }
+      },
+      "per": {
+        "type": "string",
+        "description": "The test value encoded according to the Aligned Packed Encoding Rules, encoded as a hexadecimal string."
+      },
+      "der": {
+        "type": "string",
+        "description": "The test value encoded according to the Distinguished Encoding Rules, encoded as a hexadecimal string."
+      },
+      "ber": {
+        "type": "string",
+        "description": "The test value encoded according to the Basic Encoding Rules, encoded as a hexadecimal string."
+      },
+      "xer": {
+        "type": "string",
+        "description": "The test value encoded according to the XML Encoding Rules, encoded as a string with escaped line breaks and tabs."
+      },
+      "oer": {
+        "type": "string",
+        "description": "The test value encoded according to the Octet Encoding Rules, encoded as a hexadecimal string."
+      },
+      "coer": {
+        "type": "string",
+        "description": "The test value encoded according to the Canonical Octet Encoding Rules, encoded as a hexadecimal string."
+      }
+    }
+  }
