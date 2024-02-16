@@ -1,673 +1,777 @@
 [
-    {
-      "name": "Empty Module",
-      "id": "test00001",
-      "specification": "EMPTY-MODULE DEFINITIONS ::= BEGIN\nEND"
+  {
+    "name": "Empty Module",
+    "id": "test00001",
+    "specification": "EMPTY-MODULE DEFINITIONS ::= BEGIN\nEND"
+  },
+  {
+    "name": "Empty Module With Module Identifier",
+    "id": "test00002",
+    "specification": "Wineco-ordering-protocol\n{joint-iso-itu-t internationalRA(23) set(42) set-vendors(9)\nwineco(43) modules(2) ordering(1)} DEFINITIONS ::= BEGIN\nEND"
+  },
+  {
+    "name": "Module With Automatic Tags",
+    "id": "test00003",
+    "specification": "Auto-Tags DEFINITIONS AUTOMATIC TAGS ::=\r\n\r\nBEGIN\r\n\r\nAutoTaggedSequence ::= SEQUENCE { hello BOOLEAN, ..., world INTEGER(0..8) DEFAULT 8 }\r\nAutoTaggedChoice ::= CHOICE { int INTEGER, seq AutoTaggedSequence }\r\nEND\r\n",
+    "value": "autoTaggedChoice AutoTaggedChoice ::= seq: { hello TRUE, world 2 }",
+    "ber": "a1068001ff810102",
+    "der": "a1068001ff810102",
+    "oer": "8180ff0207800102",
+    "coer": "8180ff0207800102",
+    "per": "e0200120",
+    "uper": {
+      "binary": "e0200120"
     },
-    {
-      "name": "Empty Module With Module Identifier",
-      "id": "test00002",
-      "specification": "Wineco-ordering-protocol\n{joint-iso-itu-t internationalRA(23) set(42) set-vendors(9)\nwineco(43) modules(2) ordering(1)} DEFINITIONS ::= BEGIN\nEND"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<AutoTaggedChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</AutoTaggedChoice>"
+  },
+  {
+    "name": "Module With Explicit Tags",
+    "id": "test00004",
+    "specification": "Explicit-Module DEFINITIONS EXPLICIT TAGS ::=\r\n\r\nBEGIN\r\n\r\nExplicitSequence ::= SEQUENCE { hello [1] BOOLEAN, ..., world [2] INTEGER(0..8) }\r\nExplicitChoice ::= CHOICE { bool [1] BOOLEAN, seq [2] ExplicitSequence }\r\n\r\nEND\r\n",
+    "value": "explicitChoice ExplicitChoice ::= seq: { hello TRUE, world 2 }",
+    "ber": "a20c300aa1030101ffa203020102",
+    "der": "a20c300aa1030101ffa203020102",
+    "oer": "8280ff0207800102",
+    "coer": "8280ff0207800102",
+    "per": "e0200120",
+    "uper": {
+      "binary": "e0200120"
     },
-    {
-      "name": "Module With Automatic Tags",
-      "id": "test00003",
-      "specification": "Auto-Tags DEFINITIONS AUTOMATIC TAGS ::=\r\n\r\nBEGIN\r\n\r\nAutoTaggedSequence ::= SEQUENCE { hello BOOLEAN, ..., world INTEGER(0..8) DEFAULT 8 }\r\nAutoTaggedChoice ::= CHOICE { int INTEGER, seq AutoTaggedSequence }\r\nEND\r\n",
-      "value": "autoTaggedChoice AutoTaggedChoice ::= seq: { hello TRUE, world 2 }",
-      "ber": "a1068001ff810102",
-      "der": "a1068001ff810102",
-      "oer": "8180ff0207800102",
-      "coer": "8180ff0207800102",
-      "per": "e0200120",
-      "uper": {
-        "binary": "e0200120"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<AutoTaggedChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</AutoTaggedChoice>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExplicitChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</ExplicitChoice>"
+  },
+  {
+    "name": "Module With Implicit Tags",
+    "id": "test00005",
+    "specification": "Implicit-Module DEFINITIONS IMPLICIT TAGS ::=\r\n\r\nBEGIN\r\n\r\nImplicitSequence ::= SEQUENCE { hello [1] BOOLEAN, ..., world [2] INTEGER(0..8) }\r\nImplicitChoice ::= CHOICE { bool [1] BOOLEAN, seq [2] ImplicitSequence }\r\n\r\nEND\r\n",
+    "value": "implicitChoice ImplicitChoice ::= seq: { hello TRUE, world 2 }",
+    "ber": "a2068101ff820102",
+    "der": "a2068101ff820102",
+    "oer": "8280ff0207800102",
+    "coer": "8280ff0207800102",
+    "per": "e0200120",
+    "uper": {
+      "binary": "e0200120"
     },
-    {
-      "name": "Module With Explicit Tags",
-      "id": "test00004",
-      "specification": "Explicit-Module DEFINITIONS EXPLICIT TAGS ::=\r\n\r\nBEGIN\r\n\r\nExplicitSequence ::= SEQUENCE { hello [1] BOOLEAN, ..., world [2] INTEGER(0..8) }\r\nExplicitChoice ::= CHOICE { bool [1] BOOLEAN, seq [2] ExplicitSequence }\r\n\r\nEND\r\n",
-      "value": "explicitChoice ExplicitChoice ::= seq: { hello TRUE, world 2 }",
-      "ber": "a20c300aa1030101ffa203020102",
-      "der": "a20c300aa1030101ffa203020102",
-      "oer": "8280ff0207800102",
-      "coer": "8280ff0207800102",
-      "per": "e0200120",
-      "uper": {
-        "binary": "e0200120"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExplicitChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</ExplicitChoice>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ImplicitChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</ImplicitChoice>"
+  },
+  {
+    "name": "Module With Implicit Extensibility",
+    "id": "test00006",
+    "specification": "Implicit-Ext-Module DEFINITIONS AUTOMATIC TAGS EXTENSIBILITY IMPLIED ::=\r\n\r\nBEGIN\r\n\r\nTestSequence ::= SEQUENCE { hello BOOLEAN, ..., world INTEGER(0..8) }\r\nTestChoice ::= CHOICE { bool BOOLEAN, seq TestSequence }\r\n\r\nEND",
+    "value": "testChoice TestChoice ::= seq: { hello TRUE, world 2 }",
+    "ber": "a1068001ff810102",
+    "der": "a1068001ff810102",
+    "oer": "8180ff0207800102",
+    "coer": "8180ff0207800102",
+    "per": "70100120",
+    "uper": {
+      "binary": "70100120"
     },
-    {
-      "name": "Module With Implicit Tags",
-      "id": "test00005",
-      "specification": "Implicit-Module DEFINITIONS IMPLICIT TAGS ::=\r\n\r\nBEGIN\r\n\r\nImplicitSequence ::= SEQUENCE { hello [1] BOOLEAN, ..., world [2] INTEGER(0..8) }\r\nImplicitChoice ::= CHOICE { bool [1] BOOLEAN, seq [2] ImplicitSequence }\r\n\r\nEND\r\n",
-      "value": "implicitChoice ImplicitChoice ::= seq: { hello TRUE, world 2 }",
-      "ber": "a2068101ff820102",
-      "der": "a2068101ff820102",
-      "oer": "8280ff0207800102",
-      "coer": "8280ff0207800102",
-      "per": "e0200120",
-      "uper": {
-        "binary": "e0200120"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ImplicitChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</ImplicitChoice>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<TestChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</TestChoice>"
+  },
+  {
+    "name": "Module Exports and Imports",
+    "id": "test00007",
+    "specification": "Export-Module DEFINITIONS ::= BEGIN\r\n  EXPORTS TypeExport, valueExport;\r\n  TypeExport ::= INTEGER\r\n  valueExport INTEGER ::= 8\r\nEND\r\n\r\nImport-Module DEFINITIONS ::= BEGIN\r\n  IMPORTS TypeExport, valueExport FROM Export-Module;\r\n  Usage ::= SEQUENCE { imported TypeExport DEFAULT valueExport }\r\nEND",
+    "value": "usage Usage ::= { }",
+    "ber": "3000",
+    "der": "3000",
+    "oer": "00",
+    "coer": "00",
+    "per": "00",
+    "uper": {
+      "binary": "00"
     },
-    {
-      "name": "Module With Implicit Extensibility",
-      "id": "test00006",
-      "specification": "Implicit-Ext-Module DEFINITIONS AUTOMATIC TAGS EXTENSIBILITY IMPLIED ::=\r\n\r\nBEGIN\r\n\r\nTestSequence ::= SEQUENCE { hello BOOLEAN, ..., world INTEGER(0..8) }\r\nTestChoice ::= CHOICE { bool BOOLEAN, seq TestSequence }\r\n\r\nEND",
-      "value": "testChoice TestChoice ::= seq: { hello TRUE, world 2 }",
-      "ber": "a1068001ff810102",
-      "der": "a1068001ff810102",
-      "oer": "8180ff0207800102",
-      "coer": "8180ff0207800102",
-      "per": "70100120",
-      "uper": {
-        "binary": "70100120"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<TestChoice>\r\n  <seq>\r\n    <hello><true/></hello>\r\n    <world>2</world>\r\n  </seq>\r\n</TestChoice>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Usage/>"
+  },
+  {
+    "name": "Module Exports All",
+    "id": "test00008",
+    "specification": "Export-Module DEFINITIONS ::= BEGIN\r\n  EXPORTS ALL;\r\n  TypeExport ::= INTEGER\r\n  valueExport INTEGER ::= 8\r\nEND\r\n\r\nImport-Module DEFINITIONS ::= BEGIN\r\n  IMPORTS TypeExport, valueExport FROM Export-Module;\r\n  Usage ::= SEQUENCE { imported TypeExport DEFAULT valueExport }\r\nEND",
+    "value": "usage Usage ::= { }",
+    "ber": "3000",
+    "der": "3000",
+    "oer": "00",
+    "coer": "00",
+    "per": "00",
+    "uper": {
+      "binary": "00"
     },
-    {
-      "name": "Module Exports and Imports",
-      "id": "test00007",
-      "specification": "Export-Module DEFINITIONS ::= BEGIN\r\n  EXPORTS TypeExport, valueExport;\r\n  TypeExport ::= INTEGER\r\n  valueExport INTEGER ::= 8\r\nEND\r\n\r\nImport-Module DEFINITIONS ::= BEGIN\r\n  IMPORTS TypeExport, valueExport FROM Export-Module;\r\n  Usage ::= SEQUENCE { imported TypeExport DEFAULT valueExport }\r\nEND",
-      "value": "usage Usage ::= { }",
-      "ber": "3000",
-      "der": "3000",
-      "oer": "00",
-      "coer": "00",
-      "per": "00",
-      "uper": {
-        "binary": "00"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Usage/>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Usage/>"
+  },
+  {
+    "name": "Boolean Support",
+    "id": "test00009",
+    "specification": "BooleanModule DEFINITIONS ::= BEGIN\r\n  BoolType ::= BOOLEAN\r\n  boolVal BOOLEAN ::= TRUE\r\nEND",
+    "value": "boolUsage BoolType ::= FALSE",
+    "ber": "010100",
+    "der": "010100",
+    "oer": "00",
+    "coer": "00",
+    "per": "00",
+    "uper": {
+      "binary": "00"
     },
-    {
-      "name": "Module Exports All",
-      "id": "test00008",
-      "specification": "Export-Module DEFINITIONS ::= BEGIN\r\n  EXPORTS ALL;\r\n  TypeExport ::= INTEGER\r\n  valueExport INTEGER ::= 8\r\nEND\r\n\r\nImport-Module DEFINITIONS ::= BEGIN\r\n  IMPORTS TypeExport, valueExport FROM Export-Module;\r\n  Usage ::= SEQUENCE { imported TypeExport DEFAULT valueExport }\r\nEND",
-      "value": "usage Usage ::= { }",
-      "ber": "3000",
-      "der": "3000",
-      "oer": "00",
-      "coer": "00",
-      "per": "00",
-      "uper": {
-        "binary": "00"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Usage/>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BoolType><false/></BoolType>"
+  },
+  {
+    "name": "Constrained Boolean",
+    "id": "test00010",
+    "specification": "BooleanModule DEFINITIONS ::= BEGIN\r\n  SingleValue ::= BOOLEAN (TRUE)\r\n  ContainedSubtype ::= BOOLEAN (SingleValue)\r\nEND",
+    "value": "boolUsage ContainedSubtype ::= TRUE",
+    "ber": "0101ff",
+    "der": "0101ff",
+    "oer": "ff",
+    "coer": "ff",
+    "per": "80",
+    "uper": {
+      "binary": "80"
     },
-    {
-      "name": "Boolean Support",
-      "id": "test00009",
-      "specification": "BooleanModule DEFINITIONS ::= BEGIN\r\n  BoolType ::= BOOLEAN\r\n  boolVal BOOLEAN ::= TRUE\r\nEND",
-      "value": "boolUsage BoolType ::= FALSE",
-      "ber": "010100",
-      "der": "010100",
-      "oer": "00",
-      "coer": "00",
-      "per": "00",
-      "uper": {
-        "binary": "00"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BoolType><false/></BoolType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ContainedSubtype><true/></ContainedSubtype>"
+  },
+  {
+    "name": "Null Support",
+    "id": "test00011",
+    "specification": "NullModule DEFINITIONS ::= BEGIN\r\n  NullType ::= NULL\r\n  nullVal NULL ::= NULL\r\nEND",
+    "value": "isNull NullType ::= NULL",
+    "ber": "0500",
+    "der": "0500",
+    "oer": "",
+    "coer": "",
+    "per": "00",
+    "uper": {
+      "binary": "00"
     },
-    {
-      "name": "Constrained Boolean",
-      "id": "test00010",
-      "specification": "BooleanModule DEFINITIONS ::= BEGIN\r\n  SingleValue ::= BOOLEAN (TRUE)\r\n  ContainedSubtype ::= BOOLEAN (SingleValue)\r\nEND",
-      "value": "boolUsage ContainedSubtype ::= TRUE",
-      "ber": "0101ff",
-      "der": "0101ff",
-      "oer": "ff",
-      "coer": "ff",
-      "per": "80",
-      "uper": {
-        "binary": "80"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ContainedSubtype><true/></ContainedSubtype>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<NullType/>"
+  },
+  {
+    "name": "Integer Support",
+    "id": "test00012",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  IntType ::= INTEGER\r\n  intVal INTEGER ::= 12\r\nEND",
+    "value": "intUsage IntType ::= 11",
+    "ber": "02010b",
+    "der": "02010b",
+    "oer": "010b",
+    "coer": "010b",
+    "per": "010b",
+    "uper": {
+      "binary": "010b"
     },
-    {
-      "name": "Null Support",
-      "id": "test00011",
-      "specification": "NullModule DEFINITIONS ::= BEGIN\r\n  NullType ::= NULL\r\n  nullVal NULL ::= NULL\r\nEND",
-      "value": "isNull NullType ::= NULL",
-      "ber": "0500",
-      "der": "0500",
-      "oer": "",
-      "coer": "",
-      "per": "00",
-      "uper": {
-        "binary": "00",
-        "unusedBits": 7
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<NullType/>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<IntType>11</IntType>"
+  },
+  {
+    "name": "Integer Distinguished Values",
+    "id": "test00013",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  IntType ::= INTEGER { eins(1), deux(2), minus-one(-1) }\r\n  intVal INTEGER ::= minus-one\r\nEND",
+    "value": "intUsage IntType ::= deux",
+    "ber": "020102",
+    "der": "020102",
+    "oer": "0102",
+    "coer": "0102",
+    "per": "0102",
+    "uper": {
+      "binary": "0102"
     },
-    {
-      "name": "Integer Support",
-      "id": "test00012",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  IntType ::= INTEGER\r\n  intVal INTEGER ::= 12\r\nEND",
-      "value": "intUsage IntType ::= 11",
-      "ber": "02010b",
-      "der": "02010b",
-      "oer": "010b",
-      "coer": "010b",
-      "per": "010b",
-      "uper": {
-        "binary": "010b"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<IntType>11</IntType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<IntType>2</IntType>"
+  },
+  {
+    "name": "Single-Constraint Integer",
+    "id": "test00014",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  SingleConstraint ::= INTEGER (2)\r\nEND",
+    "value": "int1 SingleConstraint ::= 2",
+    "ber": "020102",
+    "der": "020102",
+    "oer": "02",
+    "coer": "02",
+    "per": "00",
+    "uper": {
+      "binary": "00"
     },
-    {
-      "name": "Integer Distinguished Values",
-      "id": "test00013",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  IntType ::= INTEGER { eins(1), deux(2), minus-one(-1) }\r\n  intVal INTEGER ::= minus-one\r\nEND",
-      "value": "intUsage IntType ::= deux",
-      "ber": "020102",
-      "der": "020102",
-      "oer": "0102",
-      "coer": "0102",
-      "per": "0102",
-      "uper": {
-        "binary": "0102"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<IntType>2</IntType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SingleConstraint>2</SingleConstraint>"
+  },
+  {
+    "name": "Root Value Extensible Single-Constraint Integer",
+    "id": "test00015",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  SingleConstraint ::= INTEGER (2,...)\r\nEND",
+    "value": "int1 SingleConstraint ::= 2",
+    "ber": "020102",
+    "der": "020102",
+    "oer": "0102",
+    "coer": "0102",
+    "per": "00",
+    "uper": {
+      "binary": "00"
     },
-    {
-      "name": "Single-Constraint Integer",
-      "id": "test00014",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  SingleConstraint ::= INTEGER (2)\r\nEND",
-      "value": "int1 SingleConstraint ::= 2",
-      "ber": "020102",
-      "der": "020102",
-      "oer": "02",
-      "coer": "02",
-      "per": "00",
-      "uper": {
-        "binary": "00"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SingleConstraint>2</SingleConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SingleConstraint>2</SingleConstraint>"
+  },
+  {
+    "name": "Extensible Single-Constraint Integer",
+    "id": "test00016",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedSingleConstraint ::= INTEGER (2,...)\r\nEND",
+    "value": "int1 ExtendedSingleConstraint ::= 3",
+    "ber": "020103",
+    "der": "020103",
+    "oer": "0103",
+    "coer": "0103",
+    "per": "800103",
+    "uper": {
+      "binary": "800103"
     },
-    {
-      "name": "Root Value Extensible Single-Constraint Integer",
-      "id": "test00015",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  SingleConstraint ::= INTEGER (2,...)\r\nEND",
-      "value": "int1 SingleConstraint ::= 2",
-      "ber": "020102",
-      "der": "020102",
-      "oer": "0102",
-      "coer": "0102",
-      "per": "00",
-      "uper": {
-        "binary": "00"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SingleConstraint>2</SingleConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedSingleConstraint>3</ExtendedSingleConstraint>"
+  },
+  {
+    "name": "Extended Extensible Single-Constraint Integer",
+    "id": "test00017",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedSingleConstraint ::= INTEGER (2,...,3)\r\nEND",
+    "value": "int1 ExtendedSingleConstraint ::= 3",
+    "ber": "020103",
+    "der": "020103",
+    "oer": "0103",
+    "coer": "0103",
+    "per": "800103",
+    "uper": {
+      "binary": "800103"
     },
-    {
-      "name": "Extensible Single-Constraint Integer",
-      "id": "test00016",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedSingleConstraint ::= INTEGER (2,...)\r\nEND",
-      "value": "int1 ExtendedSingleConstraint ::= 3",
-      "ber": "020103",
-      "der": "020103",
-      "oer": "0103",
-      "coer": "0103",
-      "per": "800103",
-      "uper": {
-        "binary": "800103"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedSingleConstraint>3</ExtendedSingleConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedSingleConstraint>3</ExtendedSingleConstraint>"
+  },
+  {
+    "name": "Value-Range-Constraint Integer",
+    "id": "test00018",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraint ::= INTEGER (1..8)\r\nEND",
+    "value": "int6 RangeConstraint ::= 2",
+    "ber": "020102",
+    "der": "020102",
+    "oer": "02",
+    "coer": "02",
+    "per": "20",
+    "uper": {
+      "binary": "20"
     },
-    {
-      "name": "Extended Extensible Single-Constraint Integer",
-      "id": "test00017",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedSingleConstraint ::= INTEGER (2,...,3)\r\nEND",
-      "value": "int1 ExtendedSingleConstraint ::= 3",
-      "ber": "020103",
-      "der": "020103",
-      "oer": "0103",
-      "coer": "0103",
-      "per": "800103",
-      "uper": {
-        "binary": "800103"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedSingleConstraint>3</ExtendedSingleConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RangeConstraint>2</RangeConstraint>"
+  },
+  {
+    "name": "Root Value Extensible Value-Range-Constraint Integer",
+    "id": "test00019",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedRangeConstraint ::= INTEGER (1..8,...)\r\nEND",
+    "value": "int7 ExtendedRangeConstraint ::= 8",
+    "ber": "020108",
+    "der": "020108",
+    "oer": "0108",
+    "coer": "0108",
+    "per": "70",
+    "uper": {
+      "binary": "70"
     },
-    {
-      "name": "Value-Range-Constraint Integer",
-      "id": "test00018",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraint ::= INTEGER (1..8)\r\nEND",
-      "value": "int6 RangeConstraint ::= 2",
-      "ber": "020102",
-      "der": "020102",
-      "oer": "02",
-      "coer": "02",
-      "per": "20",
-      "uper": {
-        "binary": "20"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RangeConstraint>2</RangeConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedRangeConstraint>8</ExtendedRangeConstraint>"
+  },
+  {
+    "name": "Extensible Value-Range-Constraint Integer",
+    "id": "test00020",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedRangeConstraint ::= INTEGER (1..8,...)\r\nEND",
+    "value": "int8 ExtendedRangeConstraint ::= 9",
+    "ber": "020109",
+    "der": "020109",
+    "oer": "0109",
+    "coer": "0109",
+    "per": "800109",
+    "uper": {
+      "binary": "800109"
     },
-    {
-      "name": "Root Value Extensible Value-Range-Constraint Integer",
-      "id": "test00019",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedRangeConstraint ::= INTEGER (1..8,...)\r\nEND",
-      "value": "int7 ExtendedRangeConstraint ::= 8",
-      "ber": "020108",
-      "der": "020108",
-      "oer": "0108",
-      "coer": "0108",
-      "per": "70",
-      "uper": {
-        "binary": "70"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedRangeConstraint>8</ExtendedRangeConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedRangeConstraint>9</ExtendedRangeConstraint>"
+  },
+  {
+    "name": "Extended Extensible Value-Range-Constraint Integer",
+    "id": "test00021",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraintWithExtensions ::= INTEGER (1..8,...,11..14)\r\nEND",
+    "value": "int10 RangeConstraintWithExtensions ::= 12",
+    "ber": "02010c",
+    "der": "02010c",
+    "oer": "010c",
+    "coer": "010c",
+    "per": "80010c",
+    "uper": {
+      "binary": "80010c"
     },
-    {
-      "name": "Extensible Value-Range-Constraint Integer",
-      "id": "test00020",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  ExtendedRangeConstraint ::= INTEGER (1..8,...)\r\nEND",
-      "value": "int8 ExtendedRangeConstraint ::= 9",
-      "ber": "020109",
-      "der": "020109",
-      "oer": "0109",
-      "coer": "0109",
-      "per": "800109",
-      "uper": {
-        "binary": "800109"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ExtendedRangeConstraint>9</ExtendedRangeConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RangeConstraintWithExtensions>12</RangeConstraintWithExtensions>"
+  },
+  {
+    "name": "Contained-Subtype-Constraint Integer",
+    "id": "test00022",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraint ::= INTEGER (1..8)\r\n  ContainedSubtype ::= INTEGER (RangeConstraint)\r\nEND",
+    "value": "int10 ContainedSubtype ::= 7",
+    "ber": "020107",
+    "der": "020107",
+    "oer": "07",
+    "coer": "07",
+    "per": "c0",
+    "uper": {
+      "binary": "c0"
     },
-    {
-      "name": "Extended Extensible Value-Range-Constraint Integer",
-      "id": "test00021",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraintWithExtensions ::= INTEGER (1..8,...,11..14)\r\nEND",
-      "value": "int10 RangeConstraintWithExtensions ::= 12",
-      "ber": "02010c",
-      "der": "02010c",
-      "oer": "010c",
-      "coer": "010c",
-      "per": "80010c",
-      "uper": {
-        "binary": "80010c"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RangeConstraintWithExtensions>12</RangeConstraintWithExtensions>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ContainedSubtype>7</ContainedSubtype>"
+  },
+  {
+    "name": "Enumerated Support",
+    "id": "test00023",
+    "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3) }\r\nEND",
+    "value": "enumUsageB EnumType ::= 3",
+    "ber": "0a0103",
+    "der": "0a0103",
+    "oer": "03",
+    "coer": "03",
+    "per": "80",
+    "uper": {
+      "binary": "80"
     },
-    {
-      "name": "Contained-Subtype-Constraint Integer",
-      "id": "test00022",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraint ::= INTEGER (1..8)\r\n  ContainedSubtype ::= INTEGER (RangeConstraint)\r\nEND",
-      "value": "int10 ContainedSubtype ::= 7",
-      "ber": "020107",
-      "der": "020107",
-      "oer": "07",
-      "coer": "07",
-      "per": "c0",
-      "uper": {
-        "binary": "c0"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ContainedSubtype>7</ContainedSubtype>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<EnumType><option-B/></EnumType>"
+  },
+  {
+    "name": "Constrained Enumerated",
+    "id": "test00024",
+    "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3) }\r\n  SingleValue ::= EnumType (option-B)\r\nEND",
+    "value": "enumUsageB SingleValue ::= 3",
+    "ber": "0a0103",
+    "der": "0a0103",
+    "oer": "03",
+    "coer": "03",
+    "per": "80",
+    "uper": {
+      "binary": "80"
     },
-    {
-      "name": "Enumerated Support",
-      "id": "test00023",
-      "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3) }\r\nEND",
-      "value": "enumUsageB EnumType ::= 3",
-      "ber": "0a0103",
-      "der": "0a0103",
-      "oer": "03",
-      "coer": "03",
-      "per": "80",
-      "uper": {
-        "binary": "80"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<EnumType><option-B/></EnumType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SingleValue><option-B/></SingleValue>"
+  },
+  {
+    "name": "Extensible Enumerated",
+    "id": "test00025",
+    "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3), ... }\r\nEND",
+    "value": "enumUsageB EnumType ::= 3",
+    "ber": "0a0103",
+    "der": "0a0103",
+    "oer": "03",
+    "coer": "03",
+    "per": "40",
+    "uper": {
+      "binary": "40"
     },
-    {
-      "name": "Constrained Enumerated",
-      "id": "test00024",
-      "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3) }\r\n  SingleValue ::= EnumType (option-B)\r\nEND",
-      "value": "enumUsageB SingleValue ::= 3",
-      "ber": "0a0103",
-      "der": "0a0103",
-      "oer": "03",
-      "coer": "03",
-      "per": "80",
-      "uper": {
-        "binary": "80"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SingleValue><option-B/></SingleValue>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<EnumType><option-B/></EnumType>"
+  },
+  {
+    "name": "Extended Extensible Enumerated",
+    "id": "test00026",
+    "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3), ..., option-C(2) }\r\nEND",
+    "value": "enumUsageB EnumType ::= option-C",
+    "ber": "0a0102",
+    "der": "0a0102",
+    "oer": "02",
+    "coer": "02",
+    "per": "80",
+    "uper": {
+      "binary": "80"
     },
-    {
-      "name": "Extensible Enumerated",
-      "id": "test00025",
-      "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3), ... }\r\nEND",
-      "value": "enumUsageB EnumType ::= 3",
-      "ber": "0a0103",
-      "der": "0a0103",
-      "oer": "03",
-      "coer": "03",
-      "per": "40",
-      "uper": {
-        "binary": "40"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<EnumType><option-B/></EnumType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<EnumType><option-C/></EnumType>"
+  },
+  {
+    "name": "Extensible Size Range Bit String",
+    "id": "test00027",
+    "specification": "BitStringModule DEFINITIONS ::= BEGIN\r\n  BitStringType ::= BIT STRING (SIZE(1..4,...))\r\nEND",
+    "value": "bitStringUsage BitStringType ::= '1'B",
+    "ber": "03020780",
+    "der": "03020780",
+    "oer": "020780",
+    "coer": "020780",
+    "per": "0080",
+    "uper": {
+      "binary": "0080"
     },
-    {
-      "name": "Extended Extensible Enumerated",
-      "id": "test00026",
-      "specification": "EnumModule DEFINITIONS ::= BEGIN\r\n  EnumType ::= ENUMERATED { option-A, option-B(3), ..., option-C(2) }\r\nEND",
-      "value": "enumUsageB EnumType ::= option-C",
-      "ber": "0a0102",
-      "der": "0a0102",
-      "oer": "02",
-      "coer": "02",
-      "per": "80",
-      "uper": {
-        "binary": "80"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<EnumType><option-C/></EnumType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BitStringType>1</BitStringType>"
+  },
+  {
+    "name": "Extended Extensible Size Range Bit String",
+    "id": "test00028",
+    "specification": "BitStringModule DEFINITIONS ::= BEGIN\r\n  BitStringType ::= BIT STRING (SIZE(1..4,...,5..6))\r\nEND",
+    "value": "bitStringUsage BitStringType ::= '101011'B",
+    "ber": "030202ac",
+    "der": "030202ac",
+    "oer": "0202ac",
+    "coer": "0202ac",
+    "per": "8006ac",
+    "uper": {
+      "binary": "8006ac"
     },
-    {
-      "name": "Extensible Size Range Bit String",
-      "id": "test00027",
-      "specification": "BitStringModule DEFINITIONS ::= BEGIN\r\n  BitStringType ::= BIT STRING (SIZE(1..4,...))\r\nEND",
-      "value": "bitStringUsage BitStringType ::= '1'B",
-      "ber": "03020780",
-      "der": "03020780",
-      "oer": "020780",
-      "coer": "020780",
-      "per": "0080",
-      "uper": {
-        "binary": "0080"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BitStringType>1</BitStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BitStringType>101011</BitStringType>"
+  },
+  {
+    "name": "Extensible Size Range VisibleString",
+    "id": "test00029",
+    "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(1..3,...))\r\nEND",
+    "value": "visibleStringUsage VisibleStringType ::= \"abc\"",
+    "ber": "1a03616263",
+    "der": "1a03616263",
+    "oer": "03616263",
+    "coer": "03616263",
+    "per": "40616263",
+    "uper": {
+      "binary": "40616263"
     },
-    {
-      "name": "Extended Extensible Size Range Bit String",
-      "id": "test00028",
-      "specification": "BitStringModule DEFINITIONS ::= BEGIN\r\n  BitStringType ::= BIT STRING (SIZE(1..4,...,5..6))\r\nEND",
-      "value": "bitStringUsage BitStringType ::= '101011'B",
-      "ber": "030202ac",
-      "der": "030202ac",
-      "oer": "0202ac",
-      "coer": "0202ac",
-      "per": "8006ac",
-      "uper": {
-        "binary": "8006ac"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BitStringType>101011</BitStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>abc</VisibleStringType>"
+  },
+  {
+    "name": "Extended Extensible Size Range VisibleString",
+    "id": "test00030",
+    "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(1..3,...,4..6))\r\nEND",
+    "value": "visibleStringUsage VisibleStringType ::= \"abcd\"",
+    "ber": "1a0461626364",
+    "der": "1a0461626364",
+    "oer": "0461626364",
+    "coer": "0461626364",
+    "per": "800461626364",
+    "uper": {
+      "binary": "800461626364"
     },
-    {
-      "name": "Extensible Size Range VisibleString",
-      "id": "test00029",
-      "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(1..3,...))\r\nEND",
-      "value": "visibleStringUsage VisibleStringType ::= \"abc\"",
-      "ber": "1a03616263",
-      "der": "1a03616263",
-      "oer": "03616263",
-      "coer": "03616263",
-      "per": "40616263",
-      "uper": {
-        "binary": "40616263"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>abc</VisibleStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>abcd</VisibleStringType>"
+  },
+  {
+    "name": "Extensible Strict Size VisibleString",
+    "id": "test00031",
+    "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(2,...))\r\nEND",
+    "value": "visibleStringUsage VisibleStringType ::= \"ab\"",
+    "ber": "1a026162",
+    "der": "1a026162",
+    "oer": "026162",
+    "coer": "026162",
+    "per": "30b100",
+    "uper": {
+      "binary": "30b100"
     },
-    {
-      "name": "Extended Extensible Size Range VisibleString",
-      "id": "test00030",
-      "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(1..3,...,4..6))\r\nEND",
-      "value": "visibleStringUsage VisibleStringType ::= \"abcd\"",
-      "ber": "1a0461626364",
-      "der": "1a0461626364",
-      "oer": "0461626364",
-      "coer": "0461626364",
-      "per": "800461626364",
-      "uper": {
-        "binary": "800461626364"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>abcd</VisibleStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>ab</VisibleStringType>"
+  },
+  {
+    "name": "Extended Extensible Strict Size VisibleString",
+    "id": "test00032",
+    "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(2,...,3))\r\nEND",
+    "value": "visibleStringUsage VisibleStringType ::= \"abc\"",
+    "ber": "1a03616263",
+    "der": "1a03616263",
+    "oer": "03616263",
+    "coer": "03616263",
+    "per": "8003616263",
+    "uper": {
+      "binary": "8003616263"
     },
-    {
-      "name": "Extensible Strict Size VisibleString",
-      "id": "test00031",
-      "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(2,...))\r\nEND",
-      "value": "visibleStringUsage VisibleStringType ::= \"ab\"",
-      "ber": "1a026162",
-      "der": "1a026162",
-      "oer": "026162",
-      "coer": "026162",
-      "per": "30b100",
-      "uper": {
-        "binary": "30b100"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>ab</VisibleStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>abc</VisibleStringType>"
+  },
+  {
+    "name": "Extended Extensible Strict Size VisibleString with Permitted Alphabet",
+    "id": "test00033",
+    "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(2,...,3) | FROM(\"A\"..\"D\"))\r\nEND",
+    "value": "visibleStringUsage VisibleStringType ::= \"acd\"",
+    "ber": "1a03616364",
+    "der": "1a03616364",
+    "oer": "03616364",
+    "coer": "03616364",
+    "per": "0003616364",
+    "uper": {
+      "binary": "0003616364"
     },
-    {
-      "name": "Extended Extensible Strict Size VisibleString",
-      "id": "test00032",
-      "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(2,...,3))\r\nEND",
-      "value": "visibleStringUsage VisibleStringType ::= \"abc\"",
-      "ber": "1a03616263",
-      "der": "1a03616263",
-      "oer": "03616263",
-      "coer": "03616263",
-      "per": "8003616263",
-      "uper": {
-        "binary": "8003616263"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>abc</VisibleStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>acd</VisibleStringType>"
+  },
+  {
+    "name": "Value-Range-Constraint Integer Across Zero",
+    "id": "test00036",
+    "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraint ::= INTEGER (-3..3)\r\nEND",
+    "value": "int6 RangeConstraint ::= 2",
+    "ber": "020100",
+    "der": "020100",
+    "oer": "00",
+    "coer": "00",
+    "per": "60",
+    "uper": {
+      "binary": "60"
     },
-    {
-      "name": "Extended Extensible Strict Size VisibleString with Permitted Alphabet",
-      "id": "test00033",
-      "specification": "VisibleStringModule DEFINITIONS ::= BEGIN\r\n  VisibleStringType ::= VisibleString (SIZE(2,...,3) | FROM(\"A\"..\"D\"))\r\nEND",
-      "value": "visibleStringUsage VisibleStringType ::= \"acd\"",
-      "ber": "1a03616364",
-      "der": "1a03616364",
-      "oer": "03616364",
-      "coer": "03616364",
-      "per": "0003616364",
-      "uper": {
-        "binary": "0003616364"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<VisibleStringType>acd</VisibleStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RangeConstraint>0</RangeConstraint>"
+  },
+  {
+    "name": "Real Support",
+    "id": "test00037",
+    "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL\r\nEND",
+    "value": "real RealNumber ::= 2.3",
+    "ber": "09050220322e33",
+    "der": "09070332332e452d31",
+    "oer": "070332332e452d31",
+    "coer": "070332332e452d31",
+    "per": "070332332e452d31",
+    "uper": {
+      "binary": "070332332e452d31"
     },
-    {
-      "name": "Value-Range-Constraint Integer Across Zero",
-      "id": "test00036",
-      "specification": "IntegerModule DEFINITIONS ::= BEGIN\r\n  RangeConstraint ::= INTEGER (-3..3)\r\nEND",
-      "value": "int6 RangeConstraint ::= 2",
-      "ber": "020100",
-      "der": "020100",
-      "oer": "00",
-      "coer": "00",
-      "per": "60",
-      "uper": {
-        "binary": "60"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RangeConstraint>0</RangeConstraint>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber>2.3E0</RealNumber>"
+  },
+  {
+    "name": "Real Special Values",
+    "id": "test00038",
+    "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL\r\nEND",
+    "value": "real RealNumber ::= NOT-A-NUMBER",
+    "ber": "090142",
+    "der": "090142",
+    "oer": "0142",
+    "coer": "0142",
+    "per": "0142",
+    "uper": {
+      "binary": "0142"
     },
-    {
-      "name": "Real Support",
-      "id": "test00037",
-      "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL\r\nEND",
-      "value": "real RealNumber ::= 2.3",
-      "ber": "09050220322e33",
-      "der": "09070332332e452d31",
-      "oer": "070332332e452d31",
-      "coer": "070332332e452d31",
-      "per": "070332332e452d31",
-      "uper": {
-        "binary": "070332332e452d31"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber>2.3E0</RealNumber>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber><NOT-A-NUMBER/></RealNumber>"
+  },
+  {
+    "name": "Real Sequence Notation",
+    "id": "test00039",
+    "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL\r\nEND",
+    "value": "real RealNumber ::= { mantissa 2, base 10, exponent -2 }",
+    "ber": "090603322e452d32",
+    "der": "090603322e452d32",
+    "oer": "0603322e452d32",
+    "coer": "0603322e452d32",
+    "per": "0603322e452d32",
+    "uper": {
+      "binary": "0603322e452d32"
     },
-    {
-      "name": "Real Special Values",
-      "id": "test00038",
-      "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL\r\nEND",
-      "value": "real RealNumber ::= NOT-A-NUMBER",
-      "ber": "090142",
-      "der": "090142",
-      "oer": "0142",
-      "coer": "0142",
-      "per": "0142",
-      "uper": {
-        "binary": "0142"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber><NOT-A-NUMBER/></RealNumber>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber>2.0E-2</RealNumber>"
+  },
+  {
+    "name": "Constrained Real",
+    "id": "test00040",
+    "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL (WITH COMPONENTS { mantissa(-16777215..16777215), base(2), exponent(-149..104) },...) \r\nEND",
+    "value": "real RealNumber ::= { mantissa 2, base 2, exponent -2 }",
+    "ber": "090380ff01",
+    "der": "090380ff01",
+    "oer": "0380ff01",
+    "coer": "0380ff01",
+    "per": "0380ff01",
+    "uper": {
+      "binary": "0380ff01"
     },
-    {
-      "name": "Real Sequence Notation",
-      "id": "test00039",
-      "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL\r\nEND",
-      "value": "real RealNumber ::= { mantissa 2, base 10, exponent -2 }",
-      "ber": "090603322e452d32",
-      "der": "090603322e452d32",
-      "oer": "0603322e452d32",
-      "coer": "0603322e452d32",
-      "per": "0603322e452d32",
-      "uper": {
-        "binary": "0603322e452d32"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber>2.0E-2</RealNumber>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber>5.0E-1</RealNumber>"
+  },
+  {
+    "name": "Unconstrained Octet String",
+    "id": "test00041",
+    "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING\r\nEND",
+    "value": "octetStringUsage OctetStringType ::= 'FFEE'H",
+    "ber": "0402ffee",
+    "der": "0402ffee",
+    "oer": "02ffee",
+    "coer": "02ffee",
+    "per": "02ffee",
+    "uper": {
+      "binary": "02ffee"
     },
-    {
-      "name": "Constrained Real",
-      "id": "test00040",
-      "specification": "RealModule DEFINITIONS ::= BEGIN\r\n  RealNumber ::= REAL (WITH COMPONENTS { mantissa(-16777215..16777215), base(2), exponent(-149..104) },...) \r\nEND",
-      "value": "real RealNumber ::= { mantissa 2, base 2, exponent -2 }",
-      "ber": "090380ff01",
-      "der": "090380ff01",
-      "oer": "0380ff01",
-      "coer": "0380ff01",
-      "per": "0380ff01",
-      "uper": {
-        "binary": "0380ff01"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RealNumber>5.0E-1</RealNumber>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>FFEE</OctetStringType>"
+  },
+  {
+    "name": "Extensible Strict Size Octet String",
+    "id": "test00042",
+    "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(2,...))\r\nEND",
+    "value": "octetStringUsage OctetStringType ::= '00FF'H",
+    "ber": "040200ff",
+    "der": "040200ff",
+    "oer": "0200ff",
+    "coer": "0200ff",
+    "per": "007f80",
+    "uper": {
+      "binary": "007f80"
     },
-    {
-      "name": "Unconstrained Octet String",
-      "id": "test00041",
-      "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING\r\nEND",
-      "value": "octetStringUsage OctetStringType ::= 'FFEE'H",
-      "ber": "0402ffee",
-      "der": "0402ffee",
-      "oer": "02ffee",
-      "coer": "02ffee",
-      "per": "02ffee",
-      "uper": {
-        "binary": "02ffee"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>FFEE</OctetStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>00FF</OctetStringType>"
+  },
+  {
+    "name": "Extended Extensible Strict Size Octet String",
+    "id": "test00043",
+    "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(2,...))\r\nEND",
+    "value": "octetStringUsage OctetStringType ::= '01020304'H",
+    "ber": "040401020304",
+    "der": "040401020304",
+    "oer": "0401020304",
+    "coer": "0401020304",
+    "per": "800401020304",
+    "uper": {
+      "binary": "800401020304"
     },
-    {
-      "name": "Extensible Strict Size Octet String",
-      "id": "test00042",
-      "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(2,...))\r\nEND",
-      "value": "octetStringUsage OctetStringType ::= '00FF'H",
-      "ber": "040200ff",
-      "der": "040200ff",
-      "oer": "0200ff",
-      "coer": "0200ff",
-      "per": "007f80",
-      "uper": {
-        "binary": "007f80"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>00FF</OctetStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>01020304</OctetStringType>"
+  },
+  {
+    "name": "Extensible Size Range Octet String",
+    "id": "test00044",
+    "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(1..4,...))\r\nEND",
+    "value": "octetStringUsage OctetStringType ::= '10101010'B",
+    "ber": "0401aa",
+    "der": "0401aa",
+    "oer": "01aa",
+    "coer": "01aa",
+    "per": "00aa",
+    "uper": {
+      "binary": "00aa"
     },
-    {
-      "name": "Extended Extensible Strict Size Octet String",
-      "id": "test00043",
-      "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(2,...))\r\nEND",
-      "value": "octetStringUsage OctetStringType ::= '01020304'H",
-      "ber": "040401020304",
-      "der": "040401020304",
-      "oer": "0401020304",
-      "coer": "0401020304",
-      "per": "800401020304",
-      "uper": {
-        "binary": "800401020304"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>01020304</OctetStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>AA</OctetStringType>"
+  },
+  {
+    "name": "Extended Extensible Size Range Octet String",
+    "id": "test00045",
+    "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(1..4,...,5..6))\r\nEND",
+    "value": "octetStringUsage OctetStringType ::= '010203040506'H",
+    "ber": "0406010203040506",
+    "der": "0406010203040506",
+    "oer": "06010203040506",
+    "coer": "06010203040506",
+    "per": "8006010203040506",
+    "uper": {
+      "binary": "8006010203040506"
     },
-    {
-      "name": "Extensible Size Range Octet String",
-      "id": "test00044",
-      "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(1..4,...))\r\nEND",
-      "value": "octetStringUsage OctetStringType ::= '10101010'B",
-      "ber": "0401aa",
-      "der": "0401aa",
-      "oer": "01aa",
-      "coer": "01aa",
-      "per": "00aa",
-      "uper": {
-        "binary": "00aa"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>AA</OctetStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>01020304 0506</OctetStringType>"
+  },
+  {
+    "name": "Unconstrained Sequence Of Unconstrained Integers",
+    "id": "test00046",
+    "specification": "SeqOfModule DEFINITIONS ::= BEGIN\r\n  SeqOfType ::= SEQUENCE OF INTEGER\r\nEND",
+    "value": "use SeqOfType ::= { -1, -5, 0, 55, 212424214 }",
+    "ber": "30120201ff0201fb02010002013702040ca95616",
+    "der": "30120201ff0201fb02010002013702040ca95616",
+    "oer": "010501ff01fb01000137040ca95616",
+    "coer": "010501ff01fb01000137040ca95616",
+    "per": "0501ff01fb01000137040ca95616",
+    "uper": {
+      "binary": "0501ff01fb01000137040ca95616"
     },
-    {
-      "name": "Extended Extensible Size Range Octet String",
-      "id": "test00045",
-      "specification": "OctetStringModule DEFINITIONS ::= BEGIN\r\n  OctetStringType ::= OCTET STRING (SIZE(1..4,...,5..6))\r\nEND",
-      "value": "octetStringUsage OctetStringType ::= '010203040506'H",
-      "ber": "0406010203040506",
-      "der": "0406010203040506",
-      "oer": "06010203040506",
-      "coer": "06010203040506",
-      "per": "8006010203040506",
-      "uper": {
-        "binary": "8006010203040506"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<OctetStringType>01020304 0506</OctetStringType>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SeqOfType>\r\n  <INTEGER>-1</INTEGER>\r\n  <INTEGER>-5</INTEGER>\r\n  <INTEGER>0</INTEGER>\r\n  <INTEGER>55</INTEGER>\r\n  <INTEGER>212424214</INTEGER>\r\n</SeqOfType>"
+  },
+  {
+    "name": "Strictly Constrained Sequence Of Unconstrained UTF8String",
+    "id": "test00047",
+    "specification": "SeqOfModule DEFINITIONS ::= BEGIN\r\n  SeqOfType ::= SEQUENCE SIZE (2) OF UTF8String\r\nEND",
+    "value": "use SeqOfType ::= { \"hello\" \"world\" }",
+    "ber": "300e0c0568656c6c6f0c05776f726c64",
+    "der": "300e0c0568656c6c6f0c05776f726c64",
+    "oer": "01020568656c6c6f05776f726c64",
+    "coer": "01020568656c6c6f05776f726c64",
+    "per": "0568656c6c6f05776f726c64",
+    "uper": {
+      "binary": "0568656c6c6f05776f726c64"
     },
-    {
-      "name": "Information Object Field Reference No Optional Param",
-      "id": "test00201",
-      "specification": "Iofr-opt DEFINITIONS AUTOMATIC TAGS ::= \r\nBEGIN\r\nERROR ::= CLASS {\r\n    &errorCode ErrorCode UNIQUE,\r\n    &ParameterType OPTIONAL\r\n}\r\n\r\nErrorCode ::= CHOICE {\r\n        local INTEGER,\r\n        global OBJECT IDENTIFIER\r\n    }\r\n\r\nsecurity-error ERROR ::= {&errorCode local: 1, &ParameterType BOOLEAN}\r\nbranch-error ERROR ::= {&errorCode local: 2, &ParameterType INTEGER}\r\norder-error ERROR ::= {&errorCode local: 3}\r\nunknown-error ERROR ::= {&errorCode local: 4, &ParameterType BIT STRING (SIZE(4))}\r\n\r\nErrors ERROR ::= {\r\n    security-error |\r\n    branch-error |\r\n    order-error |\r\n    unknown-error\r\n}\r\n\r\nActual ::= SEQUENCE {\r\n    errorCode ERROR.&errorCode ({Errors}),\r\n    parameter ERROR.&ParameterType ({Errors}{@errorCode}) OPTIONAL\r\n}\r\n \r\nEND",
-      "value": "value Actual ::= { errorCode local: 3 }",
-      "ber": "3005a003800103",
-      "der": "3005a003800103",
-      "oer": "00800103",
-      "coer": "00800103",
-      "per": "000103",
-      "uper": {
-        "binary": "000103"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Actual>\r\n  <errorCode>\r\n    <local>3</local>\r\n  </errorCode>\r\n</Actual>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SeqOfType>\r\n  <UTF8String>hello</UTF8String>\r\n  <UTF8String>world</UTF8String>\r\n</SeqOfType>"
+  },
+  {
+    "name": "Range-Constrained Sequence Of Constrained BitString",
+    "id": "test00048",
+    "specification": "SeqOfModule DEFINITIONS ::= BEGIN\r\n  SeqOfType ::= SEQUENCE (SIZE (1..3)) OF BIT STRING (SIZE (2))\r\nEND",
+    "value": "use SeqOfType ::= { '10'B '01'B }",
+    "ber": "30080302068003020640",
+    "der": "30080302068003020640",
+    "oer": "01028040",
+    "coer": "01028040",
+    "per": "64",
+    "uper": {
+      "binary": "64"
     },
-    {
-      "name": "Information Object Field Reference With Optional Param",
-      "id": "test00202",
-      "specification": "Iofr-opt DEFINITIONS AUTOMATIC TAGS ::= \r\nBEGIN\r\nERROR ::= CLASS {\r\n    &errorCode ErrorCode UNIQUE,\r\n    &ParameterType OPTIONAL\r\n}\r\n\r\nErrorCode ::= CHOICE {\r\n        local INTEGER,\r\n        global OBJECT IDENTIFIER\r\n    }\r\n\r\nsecurity-error ERROR ::= {&errorCode local: 1, &ParameterType BOOLEAN}\r\nbranch-error ERROR ::= {&errorCode local: 2, &ParameterType INTEGER}\r\norder-error ERROR ::= {&errorCode local: 3}\r\nunknown-error ERROR ::= {&errorCode local: 4, &ParameterType BIT STRING (SIZE(4))}\r\n\r\nErrors ERROR ::= {\r\n    security-error |\r\n    branch-error |\r\n    order-error |\r\n    unknown-error\r\n}\r\n\r\nActual ::= SEQUENCE {\r\n    errorCode ERROR.&errorCode ({Errors}),\r\n    parameter ERROR.&ParameterType ({Errors}{@errorCode}) OPTIONAL\r\n}\r\n \r\nEND",
-      "value": "value Actual ::= { errorCode local: 1, parameter BOOLEAN: FALSE }",
-      "ber": "300aa003800101a103010100",
-      "der": "300aa003800101a103010100",
-      "oer": "808001010100",
-      "coer": "808001010100",
-      "per": "8001010100",
-      "uper": {
-        "binary": "8001010100"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Actual>\r\n  <errorCode>\r\n    <local>1</local>\r\n  </errorCode>\r\n  <parameter>\r\n    <BOOLEAN><false/></BOOLEAN>\r\n  </parameter>\r\n</Actual>"
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SeqOfType>\r\n  <BIT_STRING>10</BIT_STRING>\r\n  <BIT_STRING>01</BIT_STRING>\r\n</SeqOfType>"
+  },
+  {
+    "name": "Strictly Constrained Extensible Sequence Of Constrained Extensible Integer",
+    "id": "test00049",
+    "specification": "SeqOfModule DEFINITIONS ::= BEGIN\r\n  SeqOfType ::= SEQUENCE (SIZE (5,...)) OF INTEGER (0..3,...)\r\nEND",
+    "value": "use SeqOfType ::= { 0 1 2 3 4 5 6 }",
+    "ber": "3015020100020101020102020103020104020105020106",
+    "der": "3015020100020101020102020103020104020105020106",
+    "oer": "01070100010101020103010401050106",
+    "coer": "01070100010101020103010401050106",
+    "per": "800705380104800105800106",
+    "uper": {
+      "binary": "800705380104800105800106"
     },
-    {
-      "name": "Information Object Field Reference With Optional Param",
-      "id": "test00203",
-      "specification": "Iofr DEFINITIONS AUTOMATIC TAGS ::= \r\nBEGIN\r\nERROR ::= CLASS {\r\n    &errorCode ErrorCode UNIQUE,\r\n    &ParameterType OPTIONAL\r\n}\r\n\r\nErrorCode ::= CHOICE {\r\n        local INTEGER,\r\n        global OBJECT IDENTIFIER\r\n    }\r\n\r\nsecurity-error ERROR ::= {&errorCode local: 1, &ParameterType BOOLEAN}\r\nbranch-error ERROR ::= {&errorCode local: 2, &ParameterType INTEGER}\r\norder-error ERROR ::= {&errorCode local: 3}\r\nunknown-error ERROR ::= {&errorCode local: 4, &ParameterType BIT STRING (SIZE(4))}\r\n\r\nErrors ERROR ::= {\r\n    security-error |\r\n    branch-error |\r\n    order-error |\r\n    unknown-error\r\n}\r\n\r\nActual ::= SEQUENCE {\r\n    errorCode ERROR.&errorCode ({Errors}),\r\n    parameter ERROR.&ParameterType ({Errors}{@errorCode})\r\n}\r\n \r\nEND",
-      "value": "value Actual ::= { errorCode local: 1, parameter INTEGER: 4 }",
-      "ber": "300aa003800102a103020104",
-      "der": "300aa003800102a103020104",
-      "oer": "800102020104",
-      "coer": "800102020104",
-      "per": "000102020104",
-      "uper": {
-        "binary": "000102020104"
-      },
-      "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Actual>\r\n  <errorCode>\r\n    <local>2</local>\r\n  </errorCode>\r\n  <parameter>\r\n    <INTEGER>4</INTEGER>\r\n  </parameter>\r\n</Actual>"
-    }
-  ]
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SeqOfType>\r\n  <INTEGER>0</INTEGER>\r\n  <INTEGER>1</INTEGER>\r\n  <INTEGER>2</INTEGER>\r\n  <INTEGER>3</INTEGER>\r\n  <INTEGER>4</INTEGER>\r\n  <INTEGER>5</INTEGER>\r\n  <INTEGER>6</INTEGER>\r\n</SeqOfType>"
+  },
+  {
+    "name": "Empty Sequence Of",
+    "id": "test00050",
+    "specification": "SeqOfModule DEFINITIONS ::= BEGIN\r\n  SeqOfType ::= SEQUENCE (SIZE (0..123,...)) OF BOOLEAN\r\nEND",
+    "value": "use SeqOfType ::= { }",
+    "ber": "3000",
+    "der": "3000",
+    "oer": "0100",
+    "coer": "0100",
+    "per": "00",
+    "uper": {
+      "binary": "00"
+    },
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SeqOfType/>"
+  },
+  {
+    "name": "Unconstrained Set Of Unconstrained Integers",
+    "id": "test00051",
+    "specification": "SetOfModule DEFINITIONS ::= BEGIN\r\n  SetOfType ::= SET OF INTEGER\r\nEND",
+    "value": "use SetOfType ::= { -1, -5, 0, 55, 212424214 }",
+    "ber": "31120201ff0201fb02010002013702040ca95616",
+    "der": "31120201000201370201fb0201ff02040ca95616",
+    "oer": "010501ff01fb01000137040ca95616",
+    "coer": "01050100013701fb01ff040ca95616",
+    "per": "0501ff01fb01000137040ca95616",
+    "uper": {
+      "binary": "0501ff01fb01000137040ca95616"
+    },
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SetOfType>\r\n  <INTEGER>-1</INTEGER>\r\n  <INTEGER>-5</INTEGER>\r\n  <INTEGER>0</INTEGER>\r\n  <INTEGER>55</INTEGER>\r\n  <INTEGER>212424214</INTEGER>\r\n</SetOfType>"
+  },
+  {
+    "name": "Generalized Time",
+    "id": "test00052",
+    "specification": "TimeModule DEFINITIONS ::= BEGIN\r\n  TimeType ::= GeneralizedTime\r\nEND",
+    "value": "value TimeType ::= \"8201021200Z\"",
+    "ber": "180d3832303130323132303030305a",
+    "der": "180f38323031303231323030303030305a",
+    "oer": "0d3832303130323132303030305a",
+    "coer": "0f38323031303231323030303030305a",
+    "per": "0f38323031303231323030303030305a",
+    "uper": {
+      "binary": "0f38323031303231323030303030305a"
+    },
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<TimeType>82010212000000Z</TimeType>"
+  },
+  {
+    "name": "Information Object Field Reference No Optional Param",
+    "id": "test00201",
+    "specification": "Iofr-opt DEFINITIONS AUTOMATIC TAGS ::= \r\nBEGIN\r\nERROR ::= CLASS {\r\n    &errorCode ErrorCode UNIQUE,\r\n    &ParameterType OPTIONAL\r\n}\r\n\r\nErrorCode ::= CHOICE {\r\n        local INTEGER,\r\n        global OBJECT IDENTIFIER\r\n    }\r\n\r\nsecurity-error ERROR ::= {&errorCode local: 1, &ParameterType BOOLEAN}\r\nbranch-error ERROR ::= {&errorCode local: 2, &ParameterType INTEGER}\r\norder-error ERROR ::= {&errorCode local: 3}\r\nunknown-error ERROR ::= {&errorCode local: 4, &ParameterType BIT STRING (SIZE(4))}\r\n\r\nErrors ERROR ::= {\r\n    security-error |\r\n    branch-error |\r\n    order-error |\r\n    unknown-error\r\n}\r\n\r\nActual ::= SEQUENCE {\r\n    errorCode ERROR.&errorCode ({Errors}),\r\n    parameter ERROR.&ParameterType ({Errors}{@errorCode}) OPTIONAL\r\n}\r\n \r\nEND",
+    "value": "value Actual ::= { errorCode local: 3 }",
+    "ber": "3005a003800103",
+    "der": "3005a003800103",
+    "oer": "00800103",
+    "coer": "00800103",
+    "per": "000103",
+    "uper": {
+      "binary": "000103"
+    },
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Actual>\r\n  <errorCode>\r\n    <local>3</local>\r\n  </errorCode>\r\n</Actual>"
+  },
+  {
+    "name": "Information Object Field Reference With Optional Param",
+    "id": "test00202",
+    "specification": "Iofr-opt DEFINITIONS AUTOMATIC TAGS ::= \r\nBEGIN\r\nERROR ::= CLASS {\r\n    &errorCode ErrorCode UNIQUE,\r\n    &ParameterType OPTIONAL\r\n}\r\n\r\nErrorCode ::= CHOICE {\r\n        local INTEGER,\r\n        global OBJECT IDENTIFIER\r\n    }\r\n\r\nsecurity-error ERROR ::= {&errorCode local: 1, &ParameterType BOOLEAN}\r\nbranch-error ERROR ::= {&errorCode local: 2, &ParameterType INTEGER}\r\norder-error ERROR ::= {&errorCode local: 3}\r\nunknown-error ERROR ::= {&errorCode local: 4, &ParameterType BIT STRING (SIZE(4))}\r\n\r\nErrors ERROR ::= {\r\n    security-error |\r\n    branch-error |\r\n    order-error |\r\n    unknown-error\r\n}\r\n\r\nActual ::= SEQUENCE {\r\n    errorCode ERROR.&errorCode ({Errors}),\r\n    parameter ERROR.&ParameterType ({Errors}{@errorCode}) OPTIONAL\r\n}\r\n \r\nEND",
+    "value": "value Actual ::= { errorCode local: 1, parameter BOOLEAN: FALSE }",
+    "ber": "300aa003800101a103010100",
+    "der": "300aa003800101a103010100",
+    "oer": "808001010100",
+    "coer": "808001010100",
+    "per": "8001010100",
+    "uper": {
+      "binary": "8001010100"
+    },
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Actual>\r\n  <errorCode>\r\n    <local>1</local>\r\n  </errorCode>\r\n  <parameter>\r\n    <BOOLEAN><false/></BOOLEAN>\r\n  </parameter>\r\n</Actual>"
+  },
+  {
+    "name": "Information Object Field Reference With Optional Param",
+    "id": "test00203",
+    "specification": "Iofr DEFINITIONS AUTOMATIC TAGS ::= \r\nBEGIN\r\nERROR ::= CLASS {\r\n    &errorCode ErrorCode UNIQUE,\r\n    &ParameterType OPTIONAL\r\n}\r\n\r\nErrorCode ::= CHOICE {\r\n        local INTEGER,\r\n        global OBJECT IDENTIFIER\r\n    }\r\n\r\nsecurity-error ERROR ::= {&errorCode local: 1, &ParameterType BOOLEAN}\r\nbranch-error ERROR ::= {&errorCode local: 2, &ParameterType INTEGER}\r\norder-error ERROR ::= {&errorCode local: 3}\r\nunknown-error ERROR ::= {&errorCode local: 4, &ParameterType BIT STRING (SIZE(4))}\r\n\r\nErrors ERROR ::= {\r\n    security-error |\r\n    branch-error |\r\n    order-error |\r\n    unknown-error\r\n}\r\n\r\nActual ::= SEQUENCE {\r\n    errorCode ERROR.&errorCode ({Errors}),\r\n    parameter ERROR.&ParameterType ({Errors}{@errorCode})\r\n}\r\n \r\nEND",
+    "value": "value Actual ::= { errorCode local: 1, parameter INTEGER: 4 }",
+    "ber": "300aa003800102a103020104",
+    "der": "300aa003800102a103020104",
+    "oer": "800102020104",
+    "coer": "800102020104",
+    "per": "000102020104",
+    "uper": {
+      "binary": "000102020104"
+    },
+    "xer": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Actual>\r\n  <errorCode>\r\n    <local>2</local>\r\n  </errorCode>\r\n  <parameter>\r\n    <INTEGER>4</INTEGER>\r\n  </parameter>\r\n</Actual>"
+  }
+]
